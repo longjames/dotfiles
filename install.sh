@@ -48,13 +48,13 @@ ln -s $CURRENT_DIR/vimrc.bundles $HOME/.vimrc.bundles
 ln -s $CURRENT_DIR/vim/ $HOME/.vim
 
 echo "安装插件..."
-if [ ! -e $CURRENT_DIR/bundle/vundle ]
+if [ ! -e $CURRENT_DIR/vim/bundle/vundle ]
 then
     echo "安装Vundle..."
-    git clone https://github.com/gmarik/vundle.git $CURRENT_DIR/bundle/vundle
+    git clone https://github.com/gmarik/vundle.git $CURRENT_DIR/vim/bundle/vundle
 else
     echo "升级Vundle..."
-    cd "$HOME/.vim/bundle/vundle" && git pull origin master
+    cd "$CURRENT_DIR/vim/bundle/vundle" && git pull origin master
 fi
 
 echo "使用Vundle安装/升级插件..."
@@ -66,8 +66,9 @@ export SHELL=$system_shell
 echo "编译YouCompleteMe..."
 echo "请保持网络畅通，这可能会花费较长时间"
 echo "编译会占用很多系统资源 :-)"
-cd $CURRENT_DIR/bundle/YouCompleteMe/
+echo "若安装失败，请先检查依赖关系，再手动安装"
+cd $CURRENT_DIR/vim/bundle/YouCompleteMe/
 bash -x install.sh --clang-completer
 
 #Vim配置完成
-#echo "Vim config completed, just enjoy!"
+echo "Vim config completed, just enjoy!"
