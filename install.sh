@@ -35,13 +35,39 @@ ln -s $CURRENT_DIR/gitconfig $HOME/.gitconfig
 
 #配置Vim
 echo "备份vim配置..."
-for i in $HOME/.vim $HOME/.vimrc $HOME/.gvimrc; do [ -e $i ] && [ ! -L $i ] && mv $i $i.$TODAY; done
-for i in $HOME/.vim $HOME/.vimrc $HOME/.gvimrc; do [ -L $i ] && unlink $i ; done
+for i in $HOME/.vim $HOME/.vimrc $HOME/.gvimrc
+do [ -e $i ] && [ ! -L $i ] && mv $i $i.$TODAY
+done
+for i in $HOME/.vim $HOME/.vimrc $HOME/.gvimrc
+do [ -L $i ] && unlink $i
+done
 
 echo "重新配置Vim..."
 ln -s $CURRENT_DIR/vimrc $HOME/.vimrc
 ln -s $CURRENT_DIR/vimrc.bundles $HOME/.vimrc.bundles
 ln -s $CURRENT_DIR/vim/ $HOME/.vim
 
+echo "安装插件..."
+if [ ! -e $CURRENT_DIR/bundle/vundle ]
+then
+    echo "安装Vundle..."
+    git clone https://github.com/gmarik/vundle.git $CURRENT_DIR/bundle/vundle
+else
+    echo "升级Vundle..."
+    cd "$HOME/.vim/bundle/vundle" && git pull origin master
+fi
 
+echo "使用Vundle安装/升级插件..."
+system_shell=$SHELL
+export SHELL="/bin/sh"
+vim -u $HOME/.vimrc.bundles +BundleInstall! +BundleClean +qall
+export SHELL=$system_shell
 
+echo "编译YouCompleteMe..."
+echo "请保持网络畅通，这可能会花费较长时间"
+echo "编译会占用很多系统资源 :-)"
+cd $CURRENT_DIR/bundle/YouCompleteMe/
+bash -x install.sh --clang-completer
+
+#Vim配置完成
+#echo "Vim config completed, just enjoy!"
