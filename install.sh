@@ -6,41 +6,32 @@ TODAY=`date +%Y%m%d`
 #安装字体文件
 echo "正在安装字体..."
 mkdir -p $HOME/.fonts
-ln -s $CURRENT_DIR/fonts/* $HOME/.fonts/
+ln -fs $CURRENT_DIR/fonts/* $HOME/.fonts/
 fc-cache -vf #刷新系统字体缓存
 
 #建立bashrc链接
 echo "配置bash..."
-if [ -L $HOME/.bashrc ]
-then
+if [ -L $HOME/.bashrc ];then
     unlink $HOME/.bashrc
-fi
-if [ -f $HOME/.bashrc ]
-then
+elif [ -f $HOME/.bashrc ];then
     mv $HOME/.bashrc $HOME/.bashrc.$TODAY
 fi
 ln -s $CURRENT_DIR/bashrc $HOME/.bashrc
 
 #建立terminator配置链接
 echo "配置terminator..."
-if [ -L $HOME/.config/terminator/config ]
-then
+if [ -L $HOME/.config/terminator/config ];then
     unlink $HOME/.config/terminator/config
-fi
-if [ -f $HOME/.config/terminator/config ]
-then
+elif [ -f $HOME/.config/terminator/config ];then
     mv $HOME/.config/terminator/config $HOME/.config/terminator/config.$TODAY
 fi
 ln -s $CURRENT_DIR/terminator/config $HOME/.config/terminator/config
 
 #建立gitconfig链接
 echo "配置Git..."
-if [ -L $HOME/.gitconfig ]
-then
+if [ -L $HOME/.gitconfig ];then
     unlink $HOME/.gitconfig
-fi
-if [ -f $HOME/.gitconfig ]
-then
+elif [ -f $HOME/.gitconfig ];then
     mv $HOME/.gitconfig $HOME/.gitconfig.$TODAY
 fi
 ln -s $CURRENT_DIR/gitconfig $HOME/.gitconfig
@@ -48,10 +39,10 @@ ln -s $CURRENT_DIR/gitconfig $HOME/.gitconfig
 #配置Vim
 echo "备份vim配置..."
 for i in $HOME/.vim $HOME/.vimrc $HOME/.gvimrc $HOME/.vimrc.bundles
-do [ -e $i ] && [ ! -L $i ] && mv $i $i.$TODAY
+do [ -L $i ] && unlink $i
 done
 for i in $HOME/.vim $HOME/.vimrc $HOME/.gvimrc $HOME/.vimrc.bundles
-do [ -L $i ] && unlink $i
+do [ -e $i ] && mv $i $i.$TODAY
 done
 
 echo "重新配置Vim..."
@@ -72,11 +63,11 @@ fi
 echo "使用Vundle安装/升级插件..."
 system_shell=$SHELL
 export SHELL="/bin/sh"
-echo "正在从GitHub上下载插件..." >> notice
-echo "请保持网络畅通，耐心等待 :-)" >> notice
-vim -u $HOME/.vimrc.bundles notice +BundleInstall! +BundleClean +qall
+echo "正在从GitHub上下载插件..." >> $CURRENT_DIR/notice
+echo "请保持网络畅通，耐心等待 :-)" >> $CURRENT_DIR/notice
+vim -u $HOME/.vimrc.bundles $CURRENT_DIR/notice +BundleInstall! +BundleClean +qall
 export SHELL=$system_shell
-rm notice
+rm $CURRENT_DIR/notice
 
 echo "编译YouCompleteMe..."
 echo "请保持网络畅通，这可能会花费较长时间"
@@ -86,4 +77,4 @@ cd $CURRENT_DIR/vim/bundle/YouCompleteMe/
 bash -x install.sh --clang-completer
 
 #Vim配置完成
-echo "Vim config completed, just enjoy!"
+echo "Config completed, just enjoy!"
