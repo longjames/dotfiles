@@ -1,7 +1,7 @@
 #!/bin/bash
 
 CURRENT_DIR=`pwd`
-TODAY=`date +%Y%m%d`
+TODAY=`date +%Y%m%d%H%M%S`
 
 #安装字体文件
 echo "正在安装字体..."
@@ -20,6 +20,7 @@ ln -s $CURRENT_DIR/bashrc $HOME/.bashrc
 
 #建立terminator配置链接
 echo "配置terminator..."
+mkdir -p $HOME/.config/terminator
 if [ -L $HOME/.config/terminator/config ];then
     unlink $HOME/.config/terminator/config
 elif [ -f $HOME/.config/terminator/config ];then
@@ -38,10 +39,10 @@ ln -s $CURRENT_DIR/gitconfig $HOME/.gitconfig
 
 #配置Vim
 echo "备份vim配置..."
-for i in $HOME/.vim $HOME/.vimrc $HOME/.gvimrc $HOME/.vimrc.bundles
+for i in $HOME/.vim $HOME/.vimrc $HOME/.vimrc.bundles
 do [ -L $i ] && unlink $i
 done
-for i in $HOME/.vim $HOME/.vimrc $HOME/.gvimrc $HOME/.vimrc.bundles
+for i in $HOME/.vim $HOME/.vimrc $HOME/.vimrc.bundles
 do [ -e $i ] && mv $i $i.$TODAY
 done
 
