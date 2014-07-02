@@ -30,6 +30,7 @@ ln -s $BASE_DIR/tmux/tmux.conf $HOME/.tmux.conf
 #建立terminator配置链接
 mkdir -p $HOME/.config/terminator
 echo "配置terminator..."
+mkdir -p $HOME/.config/terminator
 if [ -L $HOME/.config/terminator/config ];then
     unlink $HOME/.config/terminator/config
 elif [ -f $HOME/.config/terminator/config ];then
