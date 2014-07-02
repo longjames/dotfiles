@@ -33,7 +33,7 @@ let g:syntastic_error_symbol='>>'
 let g:syntastic_warning_symbol='>'
 let g:syntastic_check_on_open=1
 let g:syntastic_enable_highlighting = 0
-"let g:syntastic_python_checker="flake8,pyflakes,pep8,pylint"
+let g:syntastic_python_checker="flake8,pyflakes,pep8,pylint"
 let g:syntastic_python_checkers=['pyflakes'] " 使用pyflakes,速度比pylint快
 let g:syntastic_javascript_checkers = ['jsl', 'jshint']
 let g:syntastic_html_checkers=['tidy', 'jshint']
@@ -53,7 +53,7 @@ let g:ycm_collect_identifiers_from_tags_files = 1
 " 引入，可以补全系统，以及python的第三方包
 let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py"
 " 直接触发自动补全
-let g:ycm_key_invoke_completion = '<C-Space>'
+let g:ycm_key_invoke_completion = '<C-Tab>'
 let g:ycm_server_keep_logfiles = 1
 
 
@@ -155,12 +155,7 @@ nnoremap <Leader>fu :CtrlPFunky<Cr>
 " narrow the list down with a word under cursor
 nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
 let g:ctrlp_funky_syntax_highlight = 1
-
-
-
 let g:ctrlp_extensions = ['funky']
-
-
 
 " git.  git操作还是习惯命令行,vim里面处理简单diff编辑操作
 Bundle 'tpope/vim-fugitive'
@@ -181,23 +176,19 @@ nnoremap <leader>h :GundoToggle<CR>
 "################### 显示增强 ###################
 
 "状态栏增强展示
-" 老的powerline配置
-"Bundle 'Lokaltog/vim-powerline'
-"if want to use fancy,need to add font patch -> git clone git://gist.github.com/1630581.git ~/.fonts/ttf-dejavu-powerline
-"let g:Powerline_symbols = 'fancy'
-"let g:Powerline_symbols = 'unicode'
-
 " 新的airline配置
 Bundle 'bling/vim-airline'
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
-let g:airline_left_sep = '▶'
+let g:airline_left_sep = '»'
+let g:airline_right_sep = '«'
 let g:airline_left_alt_sep = '❯'
-let g:airline_right_sep = '◀'
 let g:airline_right_alt_sep = '❮'
 let g:airline_symbols.linenr = '¶'
 let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.whitespace = 'Ξ'
 
 
 "括号显示增强
@@ -250,11 +241,6 @@ let g:solarized_termtrans  = 1
 "let g:solarized_italic     = 1
 let g:solarized_contrast   = "normal"  "high/low/normal
 let g:solarized_visibility = "normal"  "high/low/normal
-
-"主题 molokai
-Bundle 'tomasr/molokai'
-"let g:molokai_original = 1
-
 
 
 "################### 快速导航 ###################
@@ -335,12 +321,6 @@ let g:pyflakes_use_quickfix = 0
 Bundle 'hdima/python-syntax'
 let python_highlight_all = 1
 
-"###### Golang #########
-" 1.install golang and install gocode 'go get github.com/nsf/gocode'
-" 2.make sure gocode in your path: `which gocode` (add $GOPATH/bin to you $PATH)
-Bundle 'Blackrush/vim-gocode'
-"Bundle 'fatih/vim-go.git'
-
 "###### Markdown #########
 Bundle 'plasticboy/vim-markdown'
 let g:vim_markdown_folding_disabled=1
@@ -366,9 +346,5 @@ Bundle 'Glench/Vim-Jinja2-Syntax'
 "Bundle 'ap/vim-css-color'
 
 Bundle 'gorodinskiy/vim-coloresque'
-
-"###### nginx #########
-"Bundle 'evanmiller/nginx-vim-syntax'
-
 
 "------------------------------------------- end of configs --------------------------------------------

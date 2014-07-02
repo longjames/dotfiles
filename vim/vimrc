@@ -6,6 +6,7 @@
 let mapleader = ','
 let g:mapleader = ','
 
+
 " load bundles
 if filereadable(expand("~/.vimrc.bundles"))
     source ~/.vimrc.bundles
@@ -342,13 +343,9 @@ if has("gui_running")
     set t_Co=256
 endif
 
-" 修改主题和颜色展示
 colorscheme solarized
 set background=dark
 set t_Co=256
-
-"colorscheme molokai
-"colorscheme desert
 
 "设置标记一列的背景颜色和数字一行颜色一致
 hi! link SignColumn   LineNr
@@ -364,4 +361,3 @@ highlight clear SpellRare
 highlight SpellRare term=underline cterm=underline
 highlight clear SpellLocal
 highlight SpellLocal term=underline cterm=underline
-
