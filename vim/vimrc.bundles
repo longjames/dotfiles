@@ -233,7 +233,7 @@ au Syntax * RainbowParenthesesLoadBraces
 
 "主题 solarized
 Bundle 'altercation/vim-colors-solarized'
-let g:solarized_termcolors = 256
+"let g:solarized_termcolors = 256
 let g:solarized_termtrans  = 1
 "let g:solarized_degrade    = 1
 "let g:solarized_bold       = 1
