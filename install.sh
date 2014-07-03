@@ -11,12 +11,15 @@ fc-cache -vf #刷新系统字体缓存
 
 #建立zshrc链接
 echo "配置zsh..."
-if [ -L $HOME/.zshrc ];then
-    unlink $HOME/.zshrc
-elif [ -f $HOME/.zshrc ];then
-    mv $HOME/.zshrc $HOME/.zshrc.$TODAY
-fi
+for i in $HOME/.zshrc $HOME/.oh-my-zsh
+do [ -L $i ] && unlink $i
+done
+for i in $HOME/.zshrc $HOME/.oh-my-zsh
+do [ -e $i ] && mv $i $i.$TODAY
+done
+
 ln -s $BASE_DIR/zsh/zshrc $HOME/.zshrc
+ln -s $BASE_DIR/zsh/oh-my-zsh $HOME/.oh-my-zsh
 
 #建立tmux配置链接
 echo "配置tmux..."
