@@ -1,4 +1,4 @@
-#My dotfiles
+#my dotfiles
 
 ##关于
 
@@ -10,14 +10,14 @@
 
 - 借助编写的shell脚本，可实现系统配置的快速部署.
 - 修改系统配置文件后，这些更改能直接反应到git工作目录中，借助git，可以高效地管理这些更改.
-- 依托GitHub等平台，实现配置备份与共享.
+- 依托github等平台，实现配置备份与共享.
 
 
 
 ##列表
 
 1. 相关字体配置
-    - Monaco : Mac终端默认的等宽字体，用它来替代Ubuntu终端的默认字体.
+    - monaco : mac终端默认的等宽字体，用它来替代ubuntu终端的默认字体.
     - <del>文泉驿微米黑</del> : 一款开源中文字体，待添加.
 
 2. `zsh`配置
@@ -34,9 +34,38 @@
 
     原型来自 [wklken/k-vim](https://github.com/wklken/k-vim) ,经过自己多次整理，得到现有的vim配置.
 
-    VIM插件&快捷键说明：
+    快捷键说明
 
-        TODO.
+        1. 上排F功能键
+
+            F1 废弃这个键,防止调出系统帮助
+            F2 set nu/nonu,行号开关，用于鼠标复制代码用
+            F3 set list/nolist,显示可打印字符开关
+            F4 set wrap/nowrap,换行开关
+            F5 compilerun() 编译/运行
+
+        2. 分屏移动
+
+            ctrl + jkhl 进行上下左右窗口跳转,不需要ctrl+w+jkhl
+
+        3. buffer/tab相关
+
+            , + tn  新tab
+            , + to  tabonly
+            , + tc  close
+            , + tm  tab move
+            , + te  new tab edit
+
+        4. 按键修改
+
+            U      =  ctrl-r   redo
+            , + sa =  ggVG  全选
+            H      =  0  移动光标至行首
+            L      =  $  移动光标至行尾
+            Y      =  y$ 复制到行尾
+
+    插件配置文件为 `./vim/vimrc.bundle` ,可以的参考`wklken/k-vim`的
+    [插件介绍](https://github.com/wklken/k-vim/blob/master/README.md#%E6%8F%92%E4%BB%B6%E9%83%A8%E5%88%86).
 
 
 ##安装
@@ -49,7 +78,7 @@
 
         # ubuntu
         sudo apt-get install ctags
-        sudo apt-get install build-essential cmake python-dev  #编译YCM自动补全插件依赖
+        sudo apt-get install build-essential cmake python-dev  #编译ycm自动补全插件依赖
 
         # mac
         brew install ctags

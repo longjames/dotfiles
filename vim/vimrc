@@ -201,6 +201,20 @@ noremap L $
 map 0 ^
 
 noremap <F1> <Esc>"
+
+""为方便复制，用<F2>开启/关闭行号显示:
+function! HideNumber()
+    if(&relativenumber == &number)
+        set relativenumber! number!
+    elseif(&number)
+        set number!
+    else
+        set relativenumber!
+    endif
+    set number?
+endfunc
+nnoremap <F2> :call HideNumber()<CR>
+
 nnoremap <F3> :set list! list?<CR>
 nnoremap <F4> :set wrap! wrap?<CR>
 
@@ -303,6 +317,7 @@ func! CompileRun()
     elseif &filetype == 'java'
         exec "!javac %"
         exec "!time java %<"
+        exec "!rm ./%<.class"
     elseif &filetype == 'sh'
         exec "!time bash %"
     elseif &filetype == 'python'

@@ -85,13 +85,24 @@ alias la='ls -a'
 alias vi='vim'
 alias javac="javac -J-Dfile.encoding=utf8"
 alias grep="grep --color=auto"
-alias -s html=vim
+alias chrome="chromium-browser %U"
+alias ff="firefox &"
+alias lampp='sudo /opt/lampp/xampp'
+
+
+alias -s html=subl
+alias -s css=subl
+alias -s js=subl
+
 alias -s rb=vim
 alias -s py=vim
-alias -s js=vim
 alias -s c=vim
-alias -s java=vim
+alias -s cpp=vim
+alias -s java=eclipse
+
 alias -s txt=vim
+alias -s md=vim
+
 alias -s gz='tar -xzvf'
 alias -s tgz='tar -xzvf'
 alias -s zip='unzip'
