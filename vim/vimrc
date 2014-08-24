@@ -345,7 +345,7 @@ syntax on
 
 " Set extra options when running in GUI mode
 if has("gui_running")
-    set guifont=Monaco:h12   "Mac OSX
+    set guifont=Monaco:h15   "Mac OSX
     if has("gui_gtk2")       "GTK2
         set guifont=Monaco\ 12
     endif

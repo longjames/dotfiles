@@ -3,12 +3,6 @@
 BASE_DIR=`pwd`
 TODAY=`date +%Y%m%d%H%M%S`
 
-#安装字体文件
-echo "正在安装字体..."
-mkdir -p $HOME/.fonts
-ln -fs $BASE_DIR/fonts/* $HOME/.fonts/
-fc-cache -vf #刷新系统字体缓存
-
 #建立zshrc链接
 echo "配置zsh..."
 for i in $HOME/.zshrc $HOME/.oh-my-zsh
@@ -30,16 +24,6 @@ elif [ -f $HOME/.tmux.conf ];then
 fi
 ln -s $BASE_DIR/tmux/tmux.conf $HOME/.tmux.conf
 
-#建立terminator配置链接
-mkdir -p $HOME/.config/terminator
-echo "配置terminator..."
-mkdir -p $HOME/.config/terminator
-if [ -L $HOME/.config/terminator/config ];then
-    unlink $HOME/.config/terminator/config
-elif [ -f $HOME/.config/terminator/config ];then
-    mv $HOME/.config/terminator/config $HOME/.config/terminator/config.$TODAY
-fi
-ln -s $BASE_DIR/terminator/config $HOME/.config/terminator/config
 
 #建立gitconfig链接
 echo "配置Git..."
