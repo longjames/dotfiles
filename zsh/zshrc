@@ -85,7 +85,6 @@ alias la='ls -a'
 alias vi='vim'
 alias javac="javac -J-Dfile.encoding=utf8"
 alias grep="grep --color=auto"
-alias chrome="chromium-browser %U"
 alias ff="firefox &"
 alias lampp='sudo /opt/lampp/xampp'
 
@@ -107,3 +106,5 @@ alias -s gz='tar -xzvf'
 alias -s tgz='tar -xzvf'
 alias -s zip='unzip'
 alias -s bz2='tar -xjvf'
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
