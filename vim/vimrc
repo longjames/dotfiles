@@ -322,13 +322,12 @@ func! CompileRun()
     elseif &filetype == 'python'
         exec "!time python %"
     elseif &filetype == 'html'
-        "exec "!firefox % &"
-        exec "!chromium-browser % &"
+        exec "!chrome % &"
     elseif &filetype == 'go'
         exec "!go build %<"
         exec "!time go run %"
     elseif &filetype == 'mkd' "MarkDown 解决方案为Chrome浏览器的MarkDown Preview Plus插件，保存后实时预览
-        exec "!chromium-browser % &"
+        exec "!chrome % &"
     elseif &filetype == 'javascript'
         exec "!time node %"
     elseif &filetype == 'ruby'

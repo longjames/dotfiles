@@ -1,10 +1,13 @@
-#my dotfiles
+My dotfiles
+---
 
 ##关于
 
 此仓库存放的是一些linux常用的配置文件，
 通过软链接建立与系统配置文件的联系（系统的相关配置文件通过软链接指向该仓库中的文件).
 如 `~/.vimrc` ->  `repo_path/vim/vimrc`.
+
+**当前位于OS_X(mac)分支**,如果需要ubuntu配置，自行checkout到ubuntu分支.
 
 通过一个仓库管理这些配置文件的优势主要有：
 
@@ -14,23 +17,15 @@
 
 
 
-##列表
+##mac配置列表
 
-1. 相关字体配置
-    - monaco : mac终端默认的等宽字体，用它来替代ubuntu终端的默认字体.
-    - <del>文泉驿微米黑</del> : 一款开源中文字体，待添加.
-
-2. `zsh`配置
+1. `zsh`配置
 
     借助 [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) 配置zsh
 
-3. `tmux`配置
+2. `tmux`配置
 
-4. `terminator`配置
-
-    参见[这篇文章](http://www.fangwentong.com/2014/05/work-with-terminator/)
-
-5. `vim` 配置
+3. `vim` 配置
 
     原型来自 [wklken/k-vim](https://github.com/wklken/k-vim) ,经过自己多次整理，得到现有的vim配置.
 
@@ -94,6 +89,7 @@
         git submodule update --init
         sh -x install.sh
 
+4. 安装会持续一段时间，保持网络畅通，耐心等待 :)
 
 ##更多
 
