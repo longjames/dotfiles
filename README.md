@@ -1,10 +1,11 @@
-#my dotfiles
+My dotfiles
+---
 
 ##关于
 
 此仓库存放的是一些linux常用的配置文件，
 通过软链接建立与系统配置文件的联系（系统的相关配置文件通过软链接指向该仓库中的文件).
-如 `~/.vimrc` ->  `repo_path/vim/vimrc`.
+如 `~/.vimrc` ->  `repo_path/vim/vimrc`. ** 当前分支为Ubuntu分支.**
 
 通过一个仓库管理这些配置文件的优势主要有：
 
@@ -12,13 +13,11 @@
 - 修改系统配置文件后，这些更改能直接反应到git工作目录中，借助git，可以高效地管理这些更改.
 - 依托github等平台，实现配置备份与共享.
 
-
-
 ##列表
 
 1. 相关字体配置
-    - monaco : mac终端默认的等宽字体，用它来替代ubuntu终端的默认字体.
-    - <del>文泉驿微米黑</del> : 一款开源中文字体，待添加.
+    - Monaco : mac终端默认的等宽字体，用它来替代ubuntu终端的默认字体.
+    - 文泉驿微米黑 : 一款开源字体，解决Ubuntu更新后屡次出现的中文字体锯齿现象.
 
 2. `zsh`配置
 
@@ -70,11 +69,7 @@
 
 ##安装
 
-1. clone本仓库到本地
-
-        git clone https://github.com/fangwentong/dotfiles.git
-
-2. 安装依赖的包
+1. 安装依赖的包
 
         # ubuntu
         sudo apt-get install ctags
@@ -88,11 +83,18 @@
         sudo pip install pylint
         sudo pip install pep8
 
+2. clone本仓库到本地并切换到ubuntu分支
+
+        git clone https://github.com/fangwentong/dotfiles.git
+        cd dotfiles
+        git checkout -t origin/ubuntu
+
 3. 更新子模块并开始安装
 
-        cd dotfiles
         git submodule update --init
         sh -x install.sh
+
+4. 安装会持续一段时间，保持网络畅通，耐心等待 :)
 
 
 ##更多
