@@ -1,7 +1,15 @@
 [user]
 	email = fangwentong2012@gmail.com
 	name = 房文同
+[core]
+    editor = vim
+[merge]
+    tool = vimdiff
 [color]
 	ui = true
+    status = auto
+    branch = auto
+    diff = auto
+    interactive = auto
 [alias]
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit

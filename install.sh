@@ -80,7 +80,6 @@ export SHELL="/bin/sh"
 echo "正在从GitHub上下载插件..." >> $BASE_DIR/notice
 echo "请保持网络畅通，耐心等待 :-)" >> $BASE_DIR/notice
 vim -u $HOME/.vimrc.bundles $BASE_DIR/notice +BundleInstall! +BundleClean +qall
-export SHELL=$system_shell
 rm $BASE_DIR/notice
 
 echo "编译YouCompleteMe..."
@@ -88,7 +87,14 @@ echo "请保持网络畅通，这可能会花费较长时间"
 echo "编译会占用很多系统资源 :-)"
 echo "若安装失败，请先检查依赖关系，再手动安装"
 cd $BASE_DIR/vim/bundle/YouCompleteMe/
-bash -x install.sh --clang-completer
+if [ `which clang` ]
+then
+    bash -x install.sh --clang-completer --system-libclang
+else
+    bash -x install.sh --clang-completer
+fi
 
+export SHELL=$system_shell
 #Vim配置完成
+
 echo "Config completed, just enjoy!"
