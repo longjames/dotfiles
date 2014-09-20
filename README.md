@@ -84,7 +84,7 @@ My dotfiles
 
   ``` shell
   git submodule update --init
-  sudo sh -x ubuntu.sh #安装一些常用工具
+  sudo sh -x ubuntu.sh           #安装一些常用工具
   sh -x install.sh
   ```
 
@@ -92,10 +92,11 @@ My dotfiles
 
 4. 修改部分信息，得到自己的配置
   - 修改git/gitconfig中的邮箱和用户名.
-      ``` shell
-      git config --global user.name "你的名字"
-      git config --global user.email "你的邮箱"
-      ```
+
+  ``` shell
+  git config --global user.name "你的名字"
+  git config --global user.email "你的邮箱"
+  ```
 
 
 ###Ubuntu常见问题
