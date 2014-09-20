@@ -75,6 +75,7 @@ My dotfiles
 1. clone本仓库到本地并切换到ubuntu分支
 
   ``` shell
+  sudo apt-get install git
   git clone https://github.com/fangwentong/dotfiles.git
   cd dotfiles
   git checkout -t origin/ubuntu
