@@ -3,16 +3,17 @@
 	name = 房文同
 [color]
 	ui = true
-[alias]
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    status = auto
+    branch = auto
+    diff = auto
+    interactive = auto
 [filter "media"]
 	clean = git-media-clean %f
 	smudge = git-media-smudge %f
 [core]
 	excludesfile = /Users/tong/.gitignore_global
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+    editor = vim
+[merge]
+    tool = vimdiff
+[alias]
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit

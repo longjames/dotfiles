@@ -1,29 +1,31 @@
 My dotfiles
 ---
 
-##关于
+###关于
 
 此仓库存放的是一些linux常用的配置文件，
 通过软链接建立与系统配置文件的联系（系统的相关配置文件通过软链接指向该仓库中的文件).
 如 `~/.vimrc` ->  `repo_path/vim/vimrc`.
 
-**当前位于OS_X(mac)分支**,如果需要ubuntu配置，自行checkout到ubuntu分支.
+当前分支为 **OS X** 分支， Ubuntu配置另见 [Ubuntu](https://github.com/fangwentong/dotfiles/tree/ubuntu) 分支.
 
 通过一个仓库管理这些配置文件的优势主要有：
 
 - 借助编写的shell脚本，可实现系统配置的快速部署.
 - 修改系统配置文件后，这些更改能直接反应到git工作目录中，借助git，可以高效地管理这些更改.
-- 依托github等平台，实现配置备份与共享.
+- 依托GitHub等平台，实现配置备份与共享.
 
 
 
-##mac配置列表
+###mac配置列表
 
 1. `zsh`配置
 
     借助 [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) 配置zsh
 
 2. `tmux`配置
+
+    修改任务栏显示内容、快捷键等.
 
 3. `vim` 配置
 
@@ -59,38 +61,49 @@ My dotfiles
             L      =  $  移动光标至行尾
             Y      =  y$ 复制到行尾
 
-    插件配置文件为 `./vim/vimrc.bundle` ,可以的参考`wklken/k-vim`的
+    插件配置文件为 `vim/vimrc.bundle` ,可以的参考`wklken/k-vim`的
     [插件介绍](https://github.com/wklken/k-vim/blob/master/README.md#%E6%8F%92%E4%BB%B6%E9%83%A8%E5%88%86).
 
 
-##安装
+###安装
 
 1. clone本仓库到本地
 
-        git clone https://github.com/fangwentong/dotfiles.git
+    ```
+    git clone https://github.com/fangwentong/dotfiles.git
+    ```
 
 2. 安装依赖的包
 
-        # ubuntu
-        sudo apt-get install ctags
-        sudo apt-get install build-essential cmake python-dev  #编译ycm自动补全插件依赖
+    ```
+    # mac
+    brew install ctags
 
-        # mac
-        brew install ctags
-
-        #使用python需要
-        sudo pip install pyflakes
-        sudo pip install pylint
-        sudo pip install pep8
+    #使用python需要
+    sudo pip install pyflakes
+    sudo pip install pylint
+    sudo pip install pep8
+    ```
 
 3. 更新子模块并开始安装
 
-        cd dotfiles
-        git submodule update --init
-        sh -x install.sh
+    ```
+    cd dotfiles
+    git checkout -t origin/mac
+    git submodule update --init
+    sh -x install.sh
+    ```
 
-4. 安装会持续一段时间，保持网络畅通，耐心等待 :)
+4. 安装会持续一段时间，保持网络畅通，耐心等待
 
-##更多
+5. 安装完成后，修改部分信息，得到自己的配置
+  - 修改git/gitconfig中的邮箱和用户名
+
+    ```
+    git config --global user.name "你的名字"
+    git config --glabal user.email "你的邮箱"
+    ```
+
+###更多
 
 获取`dotfiles`的更多信息，可以访问[http://dotfiles.github.io/](http://dotfiles.github.io/)
