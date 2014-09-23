@@ -45,13 +45,13 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git command-not-found)
+plugins=(git command-not-found compleat zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$PATH:/usr/local/bin/:$HOME/bin:$HOME/.rvm/bin
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -79,9 +79,19 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Detect which `ls` flavor is in use
+if ls --color > /dev/null 2>&1; then #GNU `ls`
+    colorflag="--color"
+else # OS X `ls`
+    colorflag="-G"
+fi
+
+alias ls='ls -hF ${colorflag}'
+alias ll='ls -lhF ${colorflag}'
+alias l='ls -lAhF ${colorflag}'
+alias la='ls -a ${colorflag}'
+
 alias cls='clear'
-alias ll='ls -l'
-alias la='ls -a'
 alias vi='vim'
 alias javac="javac -J-Dfile.encoding=utf8"
 alias grep="grep --color=auto"
@@ -104,3 +114,5 @@ alias -s gz='tar -xzvf'
 alias -s tgz='tar -xzvf'
 alias -s zip='unzip'
 alias -s bz2='tar -xjvf'
+
+eval `dircolors ~/.dir_colors`

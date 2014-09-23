@@ -11,15 +11,16 @@ fc-cache -vf #刷新系统字体缓存
 
 #建立zshrc链接
 echo "配置zsh..."
-for i in $HOME/.zshrc $HOME/.oh-my-zsh
+for i in $HOME/.zshrc $HOME/.oh-my-zsh $HOME/.dir_colors
 do [ -L $i ] && unlink $i
 done
-for i in $HOME/.zshrc $HOME/.oh-my-zsh
+for i in $HOME/.zshrc $HOME/.oh-my-zsh $HOME/.dir_colors
 do [ -e $i ] && mv $i $i.$TODAY
 done
 
 ln -s $BASE_DIR/zsh/zshrc $HOME/.zshrc
 ln -s $BASE_DIR/zsh/oh-my-zsh $HOME/.oh-my-zsh
+ln -s $BASE_DIR/zsh/dircolors.256dark $HOME/.dir_colors
 
 #建立tmux配置链接
 echo "配置tmux..."
