@@ -20,8 +20,8 @@ then
 fi
 
 #编辑器
-# vim, sublime-text
-sudo apt-get install vim-gnome sublime-text
+# vim
+sudo apt-get install vim-gnome
 sudo apt-get install ctags
 
 #版本控制
@@ -51,7 +51,7 @@ sudo ln -sf $BASE_DIR/system/69-language-selector-zh-cn.conf /etc/fonts/conf.d/6
 
 
 #Python 开发环境
-sudo apt-get install python-setuptools
+sudo apt-get install python-dev python-setuptools
 sudo easy_install pip
 sudo pip install pyflakes pylint pep8
 
