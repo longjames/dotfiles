@@ -6,16 +6,15 @@ TODAY=`date +%Y%m%d%H%M%S`
 #安装字体文件
 echo "正在安装字体..."
 mkdir -p $HOME/.fonts
-ln -fs $BASE_DIR/fonts/* $HOME/.fonts/
+ln -sf $BASE_DIR/fonts/* $HOME/.fonts/
 fc-cache -vf #刷新系统字体缓存
 
 #建立zshrc链接
 echo "配置zsh..."
 for i in $HOME/.zshrc $HOME/.oh-my-zsh $HOME/.dir_colors
-do [ -L $i ] && unlink $i
-done
-for i in $HOME/.zshrc $HOME/.oh-my-zsh $HOME/.dir_colors
-do [ -e $i ] && mv $i $i.$TODAY
+do
+  [ -L $i ] && unlink $i
+  [ -e $i ] && mv $i $i.$TODAY
 done
 
 ln -s $BASE_DIR/zsh/zshrc $HOME/.zshrc
@@ -54,10 +53,9 @@ ln -s $BASE_DIR/git/gitconfig $HOME/.gitconfig
 #配置Vim
 echo "备份vim配置..."
 for i in $HOME/.vim $HOME/.vimrc $HOME/.vimrc.bundles
-do [ -L $i ] && unlink $i
-done
-for i in $HOME/.vim $HOME/.vimrc $HOME/.vimrc.bundles
-do [ -e $i ] && mv $i $i.$TODAY
+do
+  [ -L $i ] && unlink $i
+  [ -e $i ] && mv $i $i.$TODAY
 done
 
 echo "重新配置Vim..."
@@ -84,7 +82,6 @@ vim -u $HOME/.vimrc.bundles $BASE_DIR/notice +BundleInstall! +BundleClean +qall
 rm $BASE_DIR/notice
 
 echo "编译YouCompleteMe..."
-echo "请保持网络畅通，这可能会花费较长时间"
 echo "编译会占用很多系统资源 :-)"
 echo "若安装失败，请先检查依赖关系，再手动安装"
 cd $BASE_DIR/vim/bundle/YouCompleteMe/
