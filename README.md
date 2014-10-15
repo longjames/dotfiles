@@ -72,6 +72,15 @@ My dotfiles
 
 ###安装
 
+#### 一键安装
+
+
+``` shell
+wget https://raw.githubusercontent.com/fangwentong/dotfiles/ubuntu/onekey.sh -O - -q|sh
+```
+
+#### 分解动作
+
 1. clone本仓库到本地并切换到ubuntu分支
 
   ``` shell
@@ -91,7 +100,9 @@ My dotfiles
 
 3. 安装会持续一段时间，保持网络畅通，耐心等待 :)
 
-4. 修改部分信息，得到自己的配置
+#### 安装后配置
+修改部分信息，得到自己的配置
+
   - 修改git/gitconfig中的邮箱和用户名.
 
   ``` shell
