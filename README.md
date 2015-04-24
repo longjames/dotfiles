@@ -52,6 +52,9 @@ My dotfiles
 
         3. buffer/tab相关
 
+            , + bp  前一个buffer
+            , + bn  下一个buffer
+
             , + tn  新tab
             , + to  tabonly
             , + tc  close
@@ -74,7 +77,6 @@ My dotfiles
 
 #### 一键安装
 
-
 ``` shell
 wget https://raw.githubusercontent.com/fangwentong/dotfiles/ubuntu/onekey.sh -O - -q|sh
 ```
@@ -94,22 +96,24 @@ wget https://raw.githubusercontent.com/fangwentong/dotfiles/ubuntu/onekey.sh -O 
 
   ``` shell
   git submodule update --init
-  sudo sh -x ubuntu.sh           #安装一些常用工具
+  sh -x ubuntu.sh           #安装一些常用开发工具
   sh -x install.sh
   ```
 
 3. 安装会持续一段时间，保持网络畅通，耐心等待 :)
 
 #### 安装后配置
-修改部分信息，得到自己的配置
 
+  - 使用zsh作为用户登陆shell
+  ```
+  chsh -s /usr/bin/zsh
+  ```
   - 修改git/gitconfig中的邮箱和用户名.
 
   ``` shell
   git config --global user.name "你的名字"
   git config --global user.email "你的邮箱"
   ```
-
 
 ###Ubuntu常见问题
 
@@ -119,3 +123,4 @@ wget https://raw.githubusercontent.com/fangwentong/dotfiles/ubuntu/onekey.sh -O 
 ###更多
 
 获取`dotfiles`的更多信息，可以访问[http://dotfiles.github.io/](http://dotfiles.github.io/)
+
